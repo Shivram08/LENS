@@ -1,0 +1,28 @@
+name: LENS
+
+python_env: requirements.txt
+
+entry_points:
+  download_data:
+    command: "python src/data/download.py"
+
+  build_dataset:
+    parameters:
+      config_path: {type: str, default: "configs/config.yaml"}
+    command: "python src/data/build_dataset.py --config {config_path}"
+
+  encode:
+    parameters:
+      config_path: {type: str, default: "configs/config.yaml"}
+    command: "python src/encoders/encode_all.py --config {config_path}"
+
+  train:
+    parameters:
+      config_path: {type: str, default: "configs/config.yaml"}
+      lr: {type: float, default: 1e-4}
+    command: "python src/models/train.py --config {config_path} training.learning_rate={lr}"
+
+  evaluate:
+    parameters:
+      config_path: {type: str, default: "configs/config.yaml"}
+    command: "python src/evaluation/evaluate.py --config {config_path}"
