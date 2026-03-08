@@ -2,12 +2,13 @@
 lens_env/
 
 # Data (too large for git)
-data/raw/
-data/images/
-embeddings/
+data/
 
 # Model weights (use HuggingFace Hub instead)
 checkpoints/
+
+# Embeddings
+embeddings/
 
 # MLflow runs
 logs/
